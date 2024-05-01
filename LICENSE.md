@@ -1,2 +1,2 @@
 
-Copyright (C) 2024 Zentx
+Copyright (C) 2024 LucianoMoliterno
