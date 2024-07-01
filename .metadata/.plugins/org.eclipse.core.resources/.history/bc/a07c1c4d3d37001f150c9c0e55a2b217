@@ -1,0 +1,7 @@
+package entities;
+
+public class UserRole {
+	private int idUserRole;
+	private String nameRole;
+	
+}
