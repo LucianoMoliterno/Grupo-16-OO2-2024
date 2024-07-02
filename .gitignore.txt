@@ -1,7 +1,5 @@
 #Carpeta
-/metadata/
-.metadata/
-metadata/
+./metadata/
 # Compilados de Java
 *.class
 
