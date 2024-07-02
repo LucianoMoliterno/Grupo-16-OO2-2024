@@ -60,7 +60,6 @@ INDEX VERSION 1.134+D:\Repositorios\tp\Grupo-16-OO2-2024\.metadata\.plugins\org.
 3250023243.index
 1541211961.index
 1074492704.index
-2004224777.index
 1520078109.index
 464853796.index
 2343966132.index
