@@ -35,6 +35,7 @@ public class User {
     @JoinColumn(name = "idUserRole", nullable = false)
     private UserRole userRole;
 
+    //constructor
     public User(int idUser, String userName, String password, UserRole userRole) {
         super();
         this.idUser = idUser;
