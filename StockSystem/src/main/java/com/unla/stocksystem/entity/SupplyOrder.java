@@ -1,5 +1,7 @@
 package com.unla.stocksystem.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,31 +17,24 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "purchase")
-public class Purchase {
+@Table(name = "supply_order")
+public class SupplyOrder {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idPurchase;
-	@Column(name = "quantity")
-	private int quantity;
-	@Column(name = "total")
-	private double total;
+	private int idSupplyOrder;
+	@Column(name = "requestedAmount")
+	private int requestedAmount;
+	@Column(name = "date")
+	private LocalDate date;
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "product")
 	private Product product;
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "client")
-	private User client;
-
-	
-	public Purchase(int idPurchase, int quantity, Product product, User client, double total) {
+	public SupplyOrder(int idSupplyOrder, int requestedAmount, LocalDate date, Product product) {
 		super();
-		this.idPurchase = idPurchase;
-		this.quantity = quantity;
+		this.idSupplyOrder = idSupplyOrder;
+		this.requestedAmount = requestedAmount;
+		this.date = date;
 		this.product = product;
-		this.client = client;
-		this.total = total;
 	}
-	
 	
 }

@@ -15,31 +15,25 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table(name = "purchase")
-public class Purchase {
+@Table(name = "stock")
+public class Stock {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idPurchase;
+	private int idStock;
 	@Column(name = "quantity")
 	private int quantity;
-	@Column(name = "total")
-	private double total;
+	@Column(name = "quantityMin")
+	private int quantyMin;
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "product")
 	private Product product;
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "client")
-	private User client;
 
-	
-	public Purchase(int idPurchase, int quantity, Product product, User client, double total) {
+	public Stock(int idStock, int quantity, Product product, int quantyMin) {
 		super();
-		this.idPurchase = idPurchase;
+		this.idStock = idStock;
 		this.quantity = quantity;
 		this.product = product;
-		this.client = client;
-		this.total = total;
+		this.quantyMin = quantyMin;
 	}
-	
 	
 }
