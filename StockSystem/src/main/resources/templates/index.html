@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Sistema de Stock</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .jumbotron {
+            background-color: #e9ecef;
+            padding: 2rem 1rem;
+            margin-bottom: 2rem;
+            border-radius: .3rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sistema de Stock</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/login}">Iniciar Sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/registro}">Registrarse</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Bienvenido al Sistema de Stock</h1>
+            <p class="lead">Gestiona tu inventario de manera eficiente y sencilla.</p>
+            <hr class="my-4">
+            <p>Accede a tu cuenta para comenzar a utilizar nuestras herramientas de gestión de stock.</p>
+            <a class="btn btn-primary btn-lg" th:href="@{/login}" role="button">Iniciar Sesión</a>
+            <a class="btn btn-secondary btn-lg" th:href="@{/registro}" role="button">Registrarse</a>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <h3>Gestión de Productos</h3>
+                <p>Añade, edita y elimina productos de tu inventario con facilidad.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Control de Stock</h3>
+                <p>Mantén un seguimiento preciso de tus existencias y recibe alertas de stock bajo.</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Informes y Estadísticas</h3>
+                <p>Genera informes detallados para optimizar tu gestión de inventario.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2024 Sistema de Stock - Todos los derechos reservados
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
