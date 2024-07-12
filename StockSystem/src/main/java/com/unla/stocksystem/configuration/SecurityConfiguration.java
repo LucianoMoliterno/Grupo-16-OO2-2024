@@ -21,7 +21,7 @@ import org.springframework.security.config.Customizer;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-public class SecurityConfiguration {
+public class SecurityConfiguration {/*
 	private final UserService userService;
 
 	public SecurityConfiguration(UserService userService) {
@@ -61,10 +61,11 @@ public class SecurityConfiguration {
 		provider.setPasswordEncoder(passwordEncoder());
 		provider.setUserDetailsService(userService);
 		return provider;
-	}*/
+	}
 
 	@Bean
 	PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+	*/
 }

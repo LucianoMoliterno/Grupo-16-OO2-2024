@@ -13,13 +13,26 @@ import java.util.Optional;
 
 @Repository
 public interface IUserRepository extends JpaRepository<User, Serializable> {
-	@Query("SELECT u FROM User u JOIN FETCH u.userRole WHERE u.userName = :userName")
+	/*
+	 * @Query("SELECT u FROM User u JOIN FETCH u.userRoles WHERE u.username = (:username)"
+	 * ) public abstract User
+	 * findByUsernameAndFetchUserRolesEagerly(@Param("username") String username);
+	 * 
+	 * @Query("SELECT u FROM User u JOIN FETCH u.userRoles ur WHERE ur.role = ('ROLE_USER')"
+	 * ) public abstract List<User> findUsers();
+	 * 
+	 * @Query("SELECT u FROM User u JOIN FETCH u.userRoles ur WHERE ur.role = ('ROLE_ADMIN')"
+	 * ) public abstract List<User> findAdmins();
+	 * 
+	 * public abstract User findByUsername(String username); }
+	 */
+	@Query("SELECT u FROM User u JOIN FETCH u.userRoles WHERE u.userName = :userName")
 	public abstract User findByUsernameAndFetchUserRolesEagerly(@Param("userName") String username);
 
-	@Query("SELECT u FROM User u JOIN FETCH u.userRole ur WHERE ur.nameRole = ('ROLE_USER')")
+	@Query("SELECT u FROM User u JOIN FETCH u.userRoles ur WHERE ur.nameRole = ('ROLE_USER')")
 	public abstract List<User> findUsers();
 
-	@Query("SELECT u FROM User u JOIN FETCH u.userRole ur WHERE ur.nameRole = ('ROLE_ADMIN')")
+	@Query("SELECT u FROM User u JOIN FETCH u.userRoles ur WHERE ur.nameRole = ('ROLE_ADMIN')")
 	public abstract List<User> findAdmins();
 
 	public abstract User findByUserName(String userName);
