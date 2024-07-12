@@ -10,9 +10,9 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.unla.stocksystem.helpers.ViewRouteHelper;
 
 @Controller
-//@RequestMapping("/loginn")
+@RequestMapping("/login")
 public class UserController {
-	@GetMapping("/loginn")
+	@GetMapping("/login")
 	public ModelAndView login(@RequestParam(name = "error", required = false) String error,
 			@RequestParam(name = "logout", required = false) String logout) {
 		ModelAndView modelAndView = new ModelAndView(ViewRouteHelper.USER_LOGIN);

@@ -30,6 +30,15 @@ public class UserRole {
         this.nameRole = nameRole;
     }
 
+	public String getNameRole() {
+		return nameRole;
+	}
+
+	public void setNameRole(String nameRole) {
+		this.nameRole = nameRole;
+	}
+
     // Getters y setters generados por Lombok
+    
 
 }
