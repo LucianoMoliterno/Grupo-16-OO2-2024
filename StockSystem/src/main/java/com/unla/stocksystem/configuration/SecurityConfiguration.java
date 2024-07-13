@@ -11,18 +11,18 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
-import com.mysql.cj.protocol.AuthenticationProvider;
-
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
+
+
+
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-public class SecurityConfiguration {/*
-	private final UserService userService;
+public class SecurityConfiguration {
+	/*private final UserService userService;
 
 	public SecurityConfiguration(UserService userService) {
 		this.userService = userService;
@@ -55,7 +55,7 @@ public class SecurityConfiguration {/*
 		return authenticationConfiguration.getAuthenticationManager();
 	}
 
-	/*@Bean
+	@Bean
 	AuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
 		provider.setPasswordEncoder(passwordEncoder());

@@ -21,7 +21,7 @@ public class UserController {
 		return modelAndView;
 	}
 
-	/*@GetMapping("/loginsuccess")
+	@GetMapping("/loginsuccess")
 	public RedirectView loginCheck() {
 		return new RedirectView(ViewRouteHelper.INDEX);
 	}
@@ -34,5 +34,5 @@ public class UserController {
 	@GetMapping("/logoutsuccess")
 	public ModelAndView logoutSuccess() {
 		return new ModelAndView(ViewRouteHelper.USER_LOGOUT);
-	}*/
+	}
 }
