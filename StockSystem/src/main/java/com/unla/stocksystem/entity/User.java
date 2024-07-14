@@ -28,10 +28,15 @@ public class User {
 	private String userName;
 	@Column(name = "password", length = 60)
 	private String password;
+    @Column(name = "enabled")
 	private boolean enabled;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	private Set<UserRole> userRoles = new HashSet<>();
+	
+	public User() {
+		super();
+	}
 
 	public User(String userName, String password, boolean enabled) {
 		super();

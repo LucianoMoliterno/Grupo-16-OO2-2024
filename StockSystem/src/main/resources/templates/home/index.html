@@ -1,79 +1,124 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Inicio - Sistema de Stock</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-	<style>
-		body {
-			background-color: #f8f9fa;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Stock</title>
+    <link href="/css/bienvenida.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #111; /* Fondo muy oscuro */
+            color: #fff; /* Texto en color blanco */
+            font-family: 'Teko', sans-serif; /* Fuente Teko */
+            margin: 0;
+            padding: 0;
+        }
 
-		.jumbotron {
-			background-color: #e9ecef;
-			padding: 2rem 1rem;
-			margin-bottom: 2rem;
-			border-radius: .3rem;
-		}
-	</style>
+        .encabezado {
+            background-color: #222; /* Encabezado más oscuro */
+            padding: 10px 0;
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            margin-left: 20px;
+        }
+
+        .cerrar-sesion {
+            margin-right: 20px;
+        }
+
+        .navegador {
+            background-color: #333; /* Navegador oscuro */
+            padding: 10px 0;
+        }
+
+        .opciones {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .opciones li {
+            margin-right: 20px;
+        }
+
+        .opciones li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .opciones li a:hover {
+            background-color: #444;
+            border-radius: 5px;
+        }
+
+        .banner {
+            background-color: #444; /* Banner un poco más claro */
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .texto-banner {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container">
-			<a class="navbar-brand" href="#">Sistema de Stock</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/login}">Iniciar Sesión</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/registro}">Registrarse</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+    <header class="encabezado">
 
-	<div class="container mt-5">
-		<div class="jumbotron">
-			<h1 class="display-4">Bienvenido al Sistema de Stock</h1>
-			<p class="lead">Gestiona tu inventario de manera eficiente y sencilla.</p>
-			<hr class="my-4">
-			<p>Accede a tu cuenta para comenzar a utilizar nuestras herramientas de gestión de stock.</p>
-			<a class="btn btn-primary btn-lg" th:href="@{/login}" role="button">Iniciar Sesión</a>
-			<a class="btn btn-secondary btn-lg" th:href="@{/registro}" role="button">Registrarse</a>
-		</div>
+        <nav class="header-nav">
+            <div class="logo-container">
+                <h1>System Stock</h1>
+            </div>
 
-		<div class="row mt-5">
-			<div class="col-md-4">
-				<h3>Gestión de Productos</h3>
-				<p>Añade, edita y elimina productos de tu inventario con facilidad.</p>
-			</div>
-			<div class="col-md-4">
-				<h3>Control de Stock</h3>
-				<p>Mantén un seguimiento preciso de tus existencias y recibe alertas de stock bajo.</p>
-			</div>
-			<div class="col-md-4">
-				<h3>Informes y Estadísticas</h3>
-				<p>Genera informes detallados para optimizar tu gestión de inventario.</p>
-			</div>
-		</div>
-	</div>
+            <div class="cerrar-sesion">
+                <div class="iconos">
+                    <a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
+                </div>
+                <div class="logOut">
+                    <a th:href="@{/logout}">
+                        <p>LogOut</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
 
-	<footer class="bg-light text-center text-lg-start mt-5">
-		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-			© 2024 Sistema de Stock - Todos los derechos reservados
-		</div>
-	</footer>
+        <nav class="navegador">
+            <ul class="opciones">
+                <li><a th:href="@{/index}">Inicio</a></li>
+                <li><a th:href="@{/producto}">Productos</a></li>
+                <li><a th:href="@{/lote}">Lotes</a></li>
+                <li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
+                <li><a th:href="@{/stock}">Stock</a></li>
+                <li><a th:href="@{/lote/informe}">Informe</a></li>
+            </ul>
+        </nav>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </header>
+
+    
+
 </body>
 
 </html>

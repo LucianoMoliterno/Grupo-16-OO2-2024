@@ -1,26 +1,60 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
-	<title>Log in</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <title>UNLa</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/modern-business.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-	<div class="container mt-5">
-		<h2>Log in</h2>
-		<form th:action="@{/login}" method="post">
-			<div class="form-group">
-				<label for="username">Username:</label>
-				<input type="text" class="form-control" id="username" name="username" required>
-			</div>
-			<div class="form-group">
-				<label for="password">Password:</label>
-				<input type="password" class="form-control" id="password" name="password" required>
-			</div>
-			<button type="submit" class="btn btn-primary">Log in</button>
-		</form>
-	</div>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-5">Bienvenido</h1>
+            <p>Bienvenido al sistema de gestión de inventarios de UNLa. Por favor, inicie sesión para continuar.</p>
+            
+            <h2 class="display-5">Login</h2>
+            <form th:action="@{/loginprocess}" method="post">
+                <input type="text" name="username" id="username" placeholder="Username" />
+                <input type="password" name="password" id="password" placeholder="Password" />
+                <input type="submit" />
+            </form>
+            <div th:if="${error != null}" class="alert alert-danger">
+                Invalid username or password.
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Gestión de Productos</h2>
+                <p>Añade, edita y elimina productos de tu inventario con facilidad.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Control de Stock</h2>
+                <p>Mantén un seguimiento preciso de tus existencias y recibe alertas de stock bajo.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2>Informes y Estadísticas</h2>
+                <p>Genera informes detallados para optimizar tu gestión de inventario.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

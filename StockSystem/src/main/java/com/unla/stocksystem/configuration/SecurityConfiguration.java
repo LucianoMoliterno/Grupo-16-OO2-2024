@@ -15,48 +15,56 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 
-
-
-
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfiguration {
-	/*private final UserService userService;
+
+	private final UserService userService;
 
 	public SecurityConfiguration(UserService userService) {
 		this.userService = userService;
 	}
 
 	@Bean
-	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.csrf(AbstractHttpConfigurer::disable).cors(AbstractHttpConfigurer::disable)
+	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+		return http
+				.csrf(AbstractHttpConfigurer::disable)
+				.cors(AbstractHttpConfigurer::disable)
 				.authorizeHttpRequests(auth -> {
-					auth.requestMatchers("/css/*", "/imgs/*", "/js/*", "/vendor/bootstrap/css/*", "/vendor/jquery/*",
-							"/vendor/bootstrap/js/*").permitAll();
+					auth.requestMatchers("/css/*", "/imgs/*", "/js/*", "/vendor/bootstrap/css/*",
+                            "/vendor/jquery/*", "/vendor/bootstrap/js/*", "/carrito/*","/home/*")
+                .permitAll();
+
+					auth.requestMatchers("/lote/*", "/pedidoAprov/*", "/producto/*", "/stock/*") // Acceso solo para ADMIN
+                .hasRole("ADMIN");
+
 					auth.anyRequest().authenticated();
-				}).formLogin(login -> {
+				
+				})
+				.formLogin(login -> {
 					login.loginPage("/login");
 					login.loginProcessingUrl("/loginprocess");
 					login.usernameParameter("username");
 					login.passwordParameter("password");
 					login.defaultSuccessUrl("/loginsuccess");
 					login.permitAll();
-				}).logout(logout -> {
+				})
+				.logout(logout -> {
 					logout.logoutUrl("/logout");
-					logout.logoutSuccessUrl("/logoutsuccess");
+					logout.logoutSuccessUrl("/login");
 					logout.permitAll();
-				}).build();
+				})
+				.build();
 	}
 
 	@Bean
-	AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
-			throws Exception {
+	AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
 		return authenticationConfiguration.getAuthenticationManager();
 	}
 
 	@Bean
-	AuthenticationProvider authenticationProvider() {
+	AuthenticationProvider authenticationProvider(){
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
 		provider.setPasswordEncoder(passwordEncoder());
 		provider.setUserDetailsService(userService);
@@ -64,8 +72,7 @@ public class SecurityConfiguration {
 	}
 
 	@Bean
-	PasswordEncoder passwordEncoder() {
+	PasswordEncoder passwordEncoder(){
 		return new BCryptPasswordEncoder();
 	}
-	*/
 }

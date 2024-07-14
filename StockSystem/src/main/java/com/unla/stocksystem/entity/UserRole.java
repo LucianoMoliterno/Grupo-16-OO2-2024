@@ -32,8 +32,17 @@ public class UserRole {
 	private User user;
 
 	// Constructor con argumentos
-	public UserRole(String nameRole) {
+	
+	
+	public UserRole(int idUserRole, String nameRole, User user) {
+		super();
+		this.idUserRole = idUserRole;
 		this.nameRole = nameRole;
+		this.user = user;
+	}
+
+	public UserRole() {
+		super();
 	}
 
 	public String getNameRole() {
