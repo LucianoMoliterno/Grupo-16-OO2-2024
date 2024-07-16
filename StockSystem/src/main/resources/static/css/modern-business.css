@@ -1,29 +1,34 @@
 /*!
- * Start Bootstrap - Modern Business (https://startbootstrap.com/template-overviews/modern-business)
+ * Estilo inspirado en Start Bootstrap - Modern Business
  * Copyright 2013-2017 Start Bootstrap
- * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
+ * Licenciado bajo MIT (https://github.com/BlackrockDigital/startbootstrap-logomodern-business-nav/blob/master/LICENSE)
  */
 
+/* Ajuste del padding del cuerpo */
 body {
-  padding-top: 54px;
+	padding-top: 54px;
 }
 
 @media (min-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
+	body {
+		padding-top: 56px;
+	}
 }
 
+/* Estilo de los elementos del carrusel */
 .carousel-item {
-  height: 65vh;
-  min-height: 300px;
-  background: no-repeat center center scroll;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+	height: 65vh;
+	/* Altura del carrusel */
+	min-height: 300px;
+	/* Altura mínima del carrusel */
+	background: no-repeat center center scroll;
+	/* Fondo centrado sin repetición */
+	background-size: cover;
+	/* Cubrir completamente */
 }
 
+/* Estilo de los elementos del portafolio */
 .portfolio-item {
-  margin-bottom: 30px;
+	margin-bottom: 30px;
+	/* Margen inferior de los elementos del portafolio */
 }

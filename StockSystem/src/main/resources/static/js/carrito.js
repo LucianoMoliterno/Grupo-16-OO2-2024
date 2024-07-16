@@ -1,62 +1,70 @@
-document.addEventListener("DOMContentLoaded", function() {
-   
+document.addEventListener("DOMContentLoaded", () => {
+	const CartManager = {
+		init() {
+			this.bindEvents();
+		},
 
+		bindEvents() {
+			const addButtons = document.querySelectorAll(".boton-item");
+			addButtons.forEach(button => button.addEventListener("click", this.addToCart.bind(this)));
+		},
 
- const botonesAgregar = document.querySelectorAll(".boton-item");
-    botonesAgregar.forEach(boton => {
-        boton.addEventListener("click", function() {
-            const productoId = boton.dataset.productoId;
-            const cantidadInput = boton.previousElementSibling; 
-            const cantidad = cantidadInput.value;
-		
-		
-            fetch('/carrito/agregar', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: new URLSearchParams({
-                    'productoId': productoId,
-                    'cantidad': cantidad
-                })
-            })
-            .then(response => response.text())
-            .then(data => {
-                // Aquí puedes manejar la respuesta del servidor
-                console.log('Producto agregado:', data);
-                actualizarCarrito();
-            })
-            .catch(error => {
-                console.error('Error al agregar el producto:', error);
-            });
-        });
-    });
+		async addToCart(event) {
+			const button = event.currentTarget;
+			const productId = button.dataset.productoId;
+			const quantityInput = button.previousElementSibling;
+			const quantity = quantityInput.value;
 
-    function actualizarCarrito() {
-        fetch('/carrito')
-            .then(response => response.text())
-            .then(html => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const carritoItems = doc.querySelector('.carrito-items').innerHTML;
-                document.querySelector('.carrito-items').innerHTML = carritoItems;
-                actualizarTotalCarrito();
-            })
-            .catch(error => {
-                console.error('Error al actualizar el carrito:', error);
-            });
-    }
+			try {
+				const response = await this.sendAddToCartRequest(productId, quantity);
+				console.log('Producto agregado:', response);
+				await this.updateCart();
+			} catch (error) {
+				console.error('Error al agregar el producto:', error);
+				// Aquí podrías mostrar un mensaje de error al usuario
+			}
+		},
 
-    function actualizarTotalCarrito() {
-        const carritoItems = document.querySelectorAll(".carrito-item");
-        let total = 0;
-        carritoItems.forEach(item => {
-            const precio = parseFloat(item.querySelector(".carrito-item-precio").textContent.replace("$", ""));
-            const cantidad = parseInt(item.querySelector(".carrito-item-cantidad").textContent);
-            total += precio * cantidad;
-        });
+		async sendAddToCartRequest(productId, quantity) {
+			const response = await fetch('/carrito/agregar', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+				body: new URLSearchParams({ productoId: productId, cantidad: quantity })
+			});
 
-        const carritoTotal = document.querySelector(".carrito-precio-total");
-        carritoTotal.textContent = `$${total.toFixed(2)}`;
-    }
+			if (!response.ok) {
+				throw new Error('Respuesta de red no fue ok');
+			}
+
+			return response.text();
+		},
+
+		async updateCart() {
+			try {
+				const response = await fetch('/carrito');
+				const html = await response.text();
+				const parser = new DOMParser();
+				const doc = parser.parseFromString(html, 'text/html');
+				const cartItems = doc.querySelector('.carrito-items').innerHTML;
+				document.querySelector('.carrito-items').innerHTML = cartItems;
+				this.updateCartTotal();
+			} catch (error) {
+				console.error('Error al actualizar el carrito:', error);
+				// Aquí podrías mostrar un mensaje de error al usuario
+			}
+		},
+
+		updateCartTotal() {
+			const cartItems = document.querySelectorAll(".carrito-item");
+			const total = Array.from(cartItems).reduce((sum, item) => {
+				const price = parseFloat(item.querySelector(".carrito-item-precio").textContent.replace("$", ""));
+				const quantity = parseInt(item.querySelector(".carrito-item-cantidad").textContent);
+				return sum + price * quantity;
+			}, 0);
+
+			document.querySelector(".carrito-precio-total").textContent = `$${total.toFixed(2)}`;
+		}
+	};
+
+	CartManager.init();
 });
