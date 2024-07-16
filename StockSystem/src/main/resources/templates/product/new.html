@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ELECTROCORE - New Product</title>
+	<link href="/css/bienvenida.css" rel="stylesheet">
+	<link href="/css/productoStyle.css" rel="stylesheet">
+	<link href="/css/carritoStyle.css" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+
+	<style>
+		body {
+			background-color: #f4f4f4;
+			color: #333;
+			font-family: 'Teko', sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.encabezado {
+			background-color: #2c3e50;
+			padding: 10px 0;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.header-nav {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0 40px;
+		}
+
+		.logo-container img {
+			width: 150px;
+		}
+
+		.cerrar-sesion {
+			display: flex;
+			align-items: center;
+		}
+
+		.cerrar-sesion .iconos {
+			margin-right: 15px;
+		}
+
+		.cerrar-sesion .logOut p {
+			margin: 0;
+			font-size: 1rem;
+		}
+
+		.cerrar-sesion .logOut a {
+			color: #fff;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		.cerrar-sesion .logOut a:hover {
+			color: #ccc;
+		}
+
+		.navegador {
+			background-color: #34495e;
+			padding: 10px 0;
+		}
+
+		.opciones {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+		}
+
+		.opciones li {
+			margin-right: 30px;
+		}
+
+		.opciones li a {
+			color: #fff;
+			text-decoration: none;
+			padding: 10px 20px;
+			transition: background-color 0.3s ease, color 0.3s ease;
+		}
+
+		.opciones li a:hover {
+			background-color: #5d6d7e;
+			border-radius: 5px;
+			color: #fff;
+		}
+
+		.main-content {
+			padding: 20px;
+			max-width: 800px;
+			margin: 40px auto;
+			background-color: #fff;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.formulario {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.formulario p {
+			margin-bottom: 20px;
+			font-size: 1.2rem;
+		}
+
+		.formulario label {
+			font-weight: 600;
+		}
+
+		.formulario input[type="text"],
+		.formulario input[type="number"] {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 1rem;
+		}
+
+		.formulario input[type="submit"] {
+			background-color: #1abc9c;
+			color: #fff;
+			border: none;
+			padding: 15px 20px;
+			font-size: 1.2rem;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.formulario input[type="submit"]:hover {
+			background-color: #16a085;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header class="encabezado">
+		<nav class="header-nav">
+			<div class="logo-container">
+				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" alt="ElectroCore Logo"></a>
+			</div>
+			<div class="cerrar-sesion">
+				<div class="iconos">
+					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" style="font-size: 1.5rem;"></i></a>
+				</div>
+				<div class="logOut">
+					<a th:href="@{/logout}">
+						<p>Logout</p>
+					</a>
+				</div>
+			</div>
+		</nav>
+		<nav class="navegador">
+			<ul class="opciones">
+				<li><a th:href="@{/index}">Start</a></li>
+				<li><a th:href="@{/producto}">Products</a></li>
+				<li><a th:href="@{/pedidosAprov}">Supplies</a></li>
+				<li><a th:href="@{/stock}">Stock</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main class="main-content">
+		<h2>Create new product</h2>
+		<form class="formulario" th:action="@{/product/create}" th:object="${producto}" method="post">
+			<p>
+				<label for="name">Name:</label>
+				<input type="text" id="name" th:field="*{name}" required />
+			</p>
+			<p>
+				<label for="sellingPrice">Selling Price:</label>
+				<input type="number" id="sellingPrice" th:field="*{sellingPrice}" min="0" required />
+			</p>
+			<p>
+				<label for="quantityMin">Critical Stock:</label>
+				<input type="number" id="quantityMin" name="quantityMin" min="0" required />
+			</p>
+			<p>
+				<input type="submit" value="Crear producto" />
+			</p>
+		</form>
+	</main>
+
+</body>
+
+</html>

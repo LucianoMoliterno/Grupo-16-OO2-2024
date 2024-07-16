@@ -2,59 +2,119 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>UNLa</title>
-    <!-- Bootstrap core CSS -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="/css/modern-business.css" rel="stylesheet" />
+	<meta charset="utf-8" />
+	<title>Inventory Management</title>
+	<!-- Bootstrap core CSS -->
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/css/modern-business.css" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Teko', sans-serif;
+			background-color: #f4f4f4;
+			color: #333;
+		}
+
+		.jumbotron {
+			background-color: #2c3e50;
+			color: #fff;
+			padding: 40px;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.jumbotron h1,
+		.jumbotron h2 {
+			font-weight: 700;
+		}
+
+		.jumbotron p {
+			font-size: 1.2rem;
+		}
+
+		.jumbotron form {
+			margin-top: 20px;
+		}
+
+		.jumbotron form input[type="text"],
+		.jumbotron form input[type="password"] {
+			width: 100%;
+			padding: 10px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		.jumbotron form input[type="submit"] {
+			background-color: #1abc9c;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			font-size: 1.2rem;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.jumbotron form input[type="submit"]:hover {
+			background-color: #16a085;
+		}
+
+		.alert-danger {
+			margin-top: 20px;
+			font-size: 1rem;
+		}
+
+		.card {
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		.card-body h2 {
+			font-weight: 700;
+			font-size: 1.8rem;
+		}
+
+		.card-body p {
+			font-size: 1.2rem;
+		}
+
+		.btn-primary {
+			background-color: #1abc9c;
+			border: none;
+			transition: background-color 0.3s ease;
+		}
+
+		.btn-primary:hover {
+			background-color: #16a085;
+		}
+	</style>
 </head>
 
 <body>
-    <!-- Page Content -->
-    <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-5">Bienvenido</h1>
-            <p>Bienvenido al sistema de gestión de inventarios de UNLa. Por favor, inicie sesión para continuar.</p>
-            
-            <h2 class="display-5">Login</h2>
-            <form th:action="@{/loginprocess}" method="post">
-                <input type="text" name="username" id="username" placeholder="Username" />
-                <input type="password" name="password" id="password" placeholder="Password" />
-                <input type="submit" />
-            </form>
-            <div th:if="${error != null}" class="alert alert-danger">
-                Invalid username or password.
-            </div>
-        </div>
-        
-        <div class="card mb-4">
-            <div class="card-body">
-                <h2>Gestión de Productos</h2>
-                <p>Añade, edita y elimina productos de tu inventario con facilidad.</p>
-            </div>
-        </div>
+	<!-- Page Content -->
+	<div class="container">
+		<div class="jumbotron mt-5">
+			<h1 class="display-5">ELECTROCORE</h1>
+			<p>Welcome to the inventory management system. Please sign in to continue.</p>
 
-        <div class="card mb-4">
-            <div class="card-body">
-                <h2>Control de Stock</h2>
-                <p>Mantén un seguimiento preciso de tus existencias y recibe alertas de stock bajo.</p>
-            </div>
-        </div>
+			<h2 class="display-5 mt-4">Login</h2>
+			<form th:action="@{/loginprocess}" method="post">
+				<input type="text" name="username" id="username" placeholder="Username" required />
+				<input type="password" name="password" id="password" placeholder="Password" required />
+				<input type="submit" value="Iniciar Sesión" />
+			</form>
+			<div th:if="${error != null}" class="alert alert-danger">
+				Invalid username or password.
+			</div>
+		</div>
 
-        <div class="card mb-4">
-            <div class="card-body">
-                <h2>Informes y Estadísticas</h2>
-                <p>Genera informes detallados para optimizar tu gestión de inventario.</p>
-            </div>
-        </div>
-    </div>
-    <!-- Bootstrap core JavaScript -->
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- Bootstrap core JavaScript -->
+		<script src="/vendor/jquery/jquery.min.js"></script>
+		<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
