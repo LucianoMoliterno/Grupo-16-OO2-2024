@@ -73,3 +73,44 @@ INSERT INTO `db_system_stock`.`stock` (`id_stock`, `quantity`, `quantity_min`, `
 (8, 80, 5, 8),
 (9, 25, 5, 9),
 (10, 100, 5, 10);
+-- delete user role
+DELETE FROM `db_system_stock`.`user_role` WHERE (`id_user_role` = '1');
+DELETE FROM `db_system_stock`.`user_role` WHERE (`id_user_role` = '2');
+DELETE FROM `db_system_stock`.`user_role` WHERE (`id_user_role` = '3');
+-- delete user
+DELETE FROM `db_system_stock`.`user` WHERE (`id_user` = '1');
+DELETE FROM `db_system_stock`.`user` WHERE (`id_user` = '2');
+DELETE FROM `db_system_stock`.`user` WHERE (`id_user` = '3');
+-- delete stock
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '1');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '2');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '3');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '4');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '5');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '6');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '7');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '8');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '9');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '10');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '12');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '13');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '14');
+DELETE FROM `db_system_stock`.`stock` WHERE (`id_stock` = '15');
+-- delete product
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '1');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '2');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '3');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '4');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '5');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '6');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '7');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '8');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '9');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '10');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '12');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '13');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '14');
+DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '15');
+
+
+
