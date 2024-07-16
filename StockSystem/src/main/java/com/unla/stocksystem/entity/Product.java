@@ -29,10 +29,38 @@ public class Product {
 	@OneToOne(mappedBy = "product", fetch = FetchType.LAZY,
 			cascade = CascadeType.ALL)
 	private Stock stock;
+	
+	public Product() {
+		super();
+	}
 	public Product(String name, double sellingPrice, Stock stock) {
 		super();
 		this.name = name;
 		this.sellingPrice = sellingPrice;
+		this.stock = stock;
+	}
+	public int getIdProduct() {
+		return idProduct;
+	}
+	public void setIdProduct(int idProduct) {
+		this.idProduct = idProduct;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getSellingPrice() {
+		return sellingPrice;
+	}
+	public void setSellingPrice(double sellingPrice) {
+		this.sellingPrice = sellingPrice;
+	}
+	public Stock getStock() {
+		return stock;
+	}
+	public void setStock(Stock stock) {
 		this.stock = stock;
 	}
 	
