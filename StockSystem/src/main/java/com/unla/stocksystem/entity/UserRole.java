@@ -1,4 +1,5 @@
 package com.unla.stocksystem.entity;
+<<<<<<< HEAD
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -11,11 +12,23 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+=======
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
+import lombok.Getter;
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
+<<<<<<< HEAD
 @NoArgsConstructor
 @Table(name = "user_role", uniqueConstraints = @UniqueConstraint(columnNames = { "nameRole", "user_id" }))
 public class UserRole {
@@ -62,3 +75,28 @@ public class UserRole {
 	}
 
 }
+=======
+@Table(name = "UserRole", uniqueConstraints = @UniqueConstraint(columnNames = { "nameRole" }))
+public class UserRole {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idUserRole;
+
+    @Column(name = "nameRole", nullable = false, length = 45)
+    private String nameRole;
+
+    // Constructor sin argumentos explícito
+    public UserRole() {
+    }
+
+    // Constructor con argumentos
+    public UserRole(String nameRole) {
+        this.nameRole = nameRole;
+    }
+
+    // Getter explícito (aunque Lombok debería generarlo)
+    public String getNameRole() {
+        return nameRole;
+    }
+}
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb

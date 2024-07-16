@@ -1,8 +1,13 @@
 spring:
   datasource:
     url: ${DB_URL}
+<<<<<<< HEAD
     username:  ${DB_USERNAME}
     password: ${DB_PASS}
+=======
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     open-in-view: false
@@ -13,4 +18,11 @@ spring:
       dialect: org.hibernate.dialect.MySQL8Dialect
   thymeleaf:
     cache: false
+<<<<<<< HEAD
    
+=======
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb

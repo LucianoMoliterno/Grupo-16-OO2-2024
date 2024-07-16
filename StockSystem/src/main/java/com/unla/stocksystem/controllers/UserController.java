@@ -1,9 +1,14 @@
 package com.unla.stocksystem.controllers;
 
+<<<<<<< HEAD
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
@@ -32,3 +37,24 @@ public class UserController {
 		return "redirect:/index";
 	}
 }
+=======
+
+import com.unla.stocksystem.services.ProductService;
+
+public class UserController {
+	@Controller
+	@RequestMapping("/user")
+	public class UserrController {
+	    @Autowired
+	    private ProductService productService;
+
+	    @GetMapping("/catalogo")
+	    public String showCatalog(Model model) {
+	        model.addAttribute("products", productService.getAllProducts());
+	        return "user/catalogue";
+	    }
+
+	    // Agregar otros métodos relacionados con el usuario
+	}
+}
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb

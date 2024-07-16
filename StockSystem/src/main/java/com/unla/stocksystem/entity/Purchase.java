@@ -11,6 +11,10 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+<<<<<<< HEAD
+=======
+
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb
 @Entity
 @Getter
 @Setter
@@ -18,7 +22,11 @@ import lombok.Setter;
 @Table(name = "purchase")
 public class Purchase {
 	@Id
+<<<<<<< HEAD
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+=======
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb
 	private int idPurchase;
 	@Column(name = "quantity")
 	private int quantity;
@@ -31,7 +39,10 @@ public class Purchase {
 	@JoinColumn(name = "client")
 	private User client;
 
+<<<<<<< HEAD
 	
+=======
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb
 	public Purchase(int idPurchase, int quantity, Product product, User client, double total) {
 		super();
 		this.idPurchase = idPurchase;
@@ -40,6 +51,11 @@ public class Purchase {
 		this.client = client;
 		this.total = total;
 	}
+<<<<<<< HEAD
 	
 	
 }
+=======
+
+}
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb

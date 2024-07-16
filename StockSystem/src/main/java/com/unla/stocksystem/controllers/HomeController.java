@@ -2,6 +2,7 @@ package com.unla.stocksystem.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,4 +41,24 @@ public class HomeController {
 		return new RedirectView(ViewRouteHelper.ROUTE);
 }
 	 
+=======
+
+@Controller
+public class HomeController {
+
+    @GetMapping("/")
+    public String home() {
+        return "index"; // Esto se refiere a index.html en la carpeta templates
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login"; // Esto se refiere a login.html en la carpeta templates
+    }
+
+    @GetMapping("/record")
+    public String registro() {
+        return "record"; // Esto se refiere a registro.html en la carpeta templates
+    }
+>>>>>>> fd355c9b62cbde8580b1340673407ca8372e3adb
 }
