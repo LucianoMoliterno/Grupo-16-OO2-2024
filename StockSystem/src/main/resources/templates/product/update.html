@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPOTECH - Actualizar Producto</title>
+    <link href="/css/bienvenida.css" rel="stylesheet">
+    <link href="/css/carritoStyle.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="encabezado">
+        <nav class="header-nav">
+            <div class="logo-container">
+                <a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
+            </div>
+            <div class="cerrar-sesion">
+                <div class="iconos">
+                    <a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
+                </div>
+                <div class="logOut">
+                    <a th:href="@{/logout}">
+                        <p>LogOut</p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <nav class="navegador">
+            <ul class="opciones">
+                <li><a th:href="@{/index}">Inicio</a></li>
+                <li><a th:href="@{/product}">Productos</a></li>
+                <li><a th:href="@{/lote}">Lotes</a></li>
+                <li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
+                <li><a th:href="@{/stock}">Stock</a></li>
+                <li><a th:href="@{/lote/informe}">Informe</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form class="formulario" th:action="@{/product/update}" th:object="${producto}" method="post">
+            <input type="hidden" th:field="*{idProduct}" />
+            <p>Nombre: <input type="text" th:field="*{name}" /></p>
+            <p>Precio de Venta: <input type="number" th:field="*{sellingPrice}" min="0" /></p>
+            <input type="submit" value="Editar" />
+        </form>
+        <form th:action="@{/product/delete/{id}(id=${producto.idProduct})}" method="post">
+            <input type="submit" value="Borrar" />
+        </form>
+    </main>
+</body>
+
+</html>

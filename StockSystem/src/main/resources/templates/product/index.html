@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>COMPOTECH - Productos</title>
+	<link href="/css/bienvenida.css" rel="stylesheet">
+	<link href="/css/productoStyle.css" rel="stylesheet">
+	<link href="/css/carritoStyle.css" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
+	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+	<header class="encabezado">
+		<nav class="header-nav">
+			<div class="logo-container">
+				<a th:href="@{/index}"><img src="/imagenes/logoCompoTech.png" width="40%"></a>
+			</div>
+
+			<div class="cerrar-sesion">
+				<div class="iconos">
+					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
+				</div>
+				<div class="logOut">
+					<a th:href="@{/logout}">
+						<p>LogOut</p>
+					</a>
+				</div>
+			</div>
+		</nav>
+		<nav class="navegador">
+			<ul class="opciones">
+				<li><a th:href="@{/index}">Inicio</a></li>
+				<li><a th:href="@{/producto}">Productos</a></li>
+				<li><a th:href="@{/lote}">Lotes</a></li>
+				<li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
+				<li><a th:href="@{/stock}">Stock</a></li>
+				<li><a th:href="@{/lote/informe}">Informe</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+
+		<div class="agregar-producto">
+			<div class="icono">
+				<img src="/imagenes/iconAdd.png" width=30px height=30px>
+			</div>
+
+			<div class="redirigirProducto">
+				<a href="product/new">
+					<p>Crear nuevo producto</p>
+				</a>
+			</div>
+
+		</div>
+
+
+		<table border="1px">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Nombre</th>
+					<th>Precio de venta</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="producto : ${productos}">
+					<td><span th:text="${producto.idProduct}"></span></td>
+					<td><span th:text="${producto.name}"></span></td>
+					<td><span th:text="${producto.sellingPrice}"></span></td>
+					<td>
+						<a th:href="@{/product/{id}(id=${producto.idProduct})}"><input type="submit" value="Modificar"></a>
+					</td>
+					<td>
+						<form action="#" th:action="@{/product/delete/{id}(id=${producto.idProduct})}" method="post">
+							<input type="submit" value="Borrar" />
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</main>
+
+</body>
+
+</html>

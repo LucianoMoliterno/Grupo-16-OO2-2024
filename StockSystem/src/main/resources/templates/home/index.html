@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,15 +9,15 @@
     <link href="/css/bienvenida.css" rel="stylesheet">
     <style>
         body {
-            background-color: #1E1E1E; /* Fondo gris oscuro */
-            color: #EAEAEA; /* Texto en color blanco */
+            background-color: #111; /* Fondo muy oscuro */
+            color: #fff; /* Texto en color blanco */
             font-family: 'Teko', sans-serif; /* Fuente Teko */
             margin: 0;
             padding: 0;
         }
 
         .encabezado {
-            background-color: #252526; /* Encabezado gris oscuro */
+            background-color: #222; /* Encabezado más oscuro */
             padding: 10px 0;
         }
 
@@ -33,28 +34,10 @@
 
         .cerrar-sesion {
             margin-right: 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        .iconos {
-            margin-right: 10px;
-        }
-
-        .logOut a {
-            color: #EAEAEA;
-            text-decoration: none;
-            padding: 10px 15px;
-            transition: all 0.3s ease;
-        }
-
-        .logOut a:hover {
-            background-color: #444444; /* Fondo al pasar el mouse */
-            border-radius: 5px;
         }
 
         .navegador {
-            background-color: #333333; /* Navegador más oscuro */
+            background-color: #333; /* Navegador oscuro */
             padding: 10px 0;
         }
 
@@ -71,19 +54,19 @@
         }
 
         .opciones li a {
-            color: #EAEAEA; /* Texto en color blanco */
+            color: #fff;
             text-decoration: none;
             padding: 10px 15px;
             transition: all 0.3s ease;
         }
 
         .opciones li a:hover {
-            background-color: #444444; /* Fondo al pasar el mouse */
+            background-color: #444;
             border-radius: 5px;
         }
 
         .banner {
-            background-color: #444444; /* Banner gris más claro */
+            background-color: #444; /* Banner un poco más claro */
             padding: 80px 0;
             text-align: center;
         }
@@ -103,13 +86,15 @@
 
 <body>
     <header class="encabezado">
+
         <nav class="header-nav">
             <div class="logo-container">
                 <h1>System Stock</h1>
             </div>
+
             <div class="cerrar-sesion">
                 <div class="iconos">
-                    <a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" style="color: #EAEAEA;"></i></a>
+                    <a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
                 </div>
                 <div class="logOut">
                     <a th:href="@{/logout}">
@@ -118,6 +103,7 @@
                 </div>
             </div>
         </nav>
+
         <nav class="navegador">
             <ul class="opciones">
                 <li><a th:href="@{/index}">Inicio</a></li>
@@ -128,7 +114,11 @@
                 <li><a th:href="@{/lote/informe}">Informe</a></li>
             </ul>
         </nav>
+
     </header>
+
+    
+
 </body>
 
 </html>
