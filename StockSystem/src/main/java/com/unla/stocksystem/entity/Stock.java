@@ -29,6 +29,11 @@ public class Stock {
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="product_id")
 	private Product product;
+	
+	public Stock() {
+		super();
+	}
+
 	public Stock(int quantity, int quantyMin, Product product) {
 		super();
 		this.quantity = quantity;

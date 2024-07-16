@@ -12,13 +12,13 @@ public class ViewRouteHelper {
 	public final static String USER_LOGOUT = "user/logout";
 
 	//PRODUCTO
-	public final static String PRODUCTO = "producto/index";
-	public final static String PRODUCTO_NEW = "producto/new";
-	public final static String PRODUCTO_UPDATE = "producto/update";
+	public final static String PRODUCTO = "product/index";
+	public final static String PRODUCTO_NEW = "product/new";
+	public final static String PRODUCTO_UPDATE = "product/update";
 	
 	/**** Redirects ****/
 	public final static String ROUTE = "/index"; 
-	public final static String PRODUCTO_ROOT = "/producto";
+	public final static String PRODUCTO_ROOT = "/product";
 	public final static String CARRITO_ROOT = "/carrito";
 	public final static String LOTE_ROOT = "/lote";
 	public final static String APROV_ROOT = "/pedidosAprov";

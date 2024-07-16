@@ -28,8 +28,6 @@ public class ProductController {
 	private IProductService productoService;
 	private IStockService stockService;
 
-	
-
 	public ProductController(IProductService productoService, IStockService stockService) {
 		super();
 		this.productoService = productoService;
@@ -69,7 +67,7 @@ public class ProductController {
 	public RedirectView create(@ModelAttribute("producto") Product product,
 			@RequestParam("quantityMin") int quantityMin) {
 		productoService.insertOrUpdate(product);
-		Stock s = new Stock(0, quantityMin,product);
+		Stock s = new Stock(0, quantityMin, product);
 		stockService.insertOrUpdate(s);
 		return new RedirectView(ViewRouteHelper.PRODUCTO_ROOT);
 	}

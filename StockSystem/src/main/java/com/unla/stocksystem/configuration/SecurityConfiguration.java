@@ -36,7 +36,7 @@ public class SecurityConfiguration {
                             "/vendor/jquery/*", "/vendor/bootstrap/js/*", "/carrito/*","/home/*")
                 .permitAll();
 
-					auth.requestMatchers("/lote/*", "/pedidoAprov/*", "/producto/*", "/stock/*") // Acceso solo para ADMIN
+					auth.requestMatchers("/lote/*", "/pedidoAprov/*", "/product/*", "/stock/*") // Acceso solo para ADMIN
                 .hasRole("ADMIN");
 
 					auth.anyRequest().authenticated();
