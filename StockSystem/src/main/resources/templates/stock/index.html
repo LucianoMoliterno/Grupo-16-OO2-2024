@@ -207,8 +207,8 @@
             <td th:text="${stock.product.sellingPrice}"></td>
 			<td th:text="${stock.idStock}"></td>
             <td th:text="${stock.quantity}"></td>
-            <td th:text="${stock.quantyMin}"></td>
-        </tr> 
+			<td th:text="${stock.quantyMin}"></td>
+			<td th:text="${stock.quantity == 0 ? 'Vacío' : (stock.quantity <= stock.quantyMin ? 'Crítico' : 'Disponible')}"></td>        </tr> 
         </tbody>
     </table>
 </main>
