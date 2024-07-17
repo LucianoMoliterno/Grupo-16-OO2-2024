@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>COMPOTECH - Productos</title>
+	<title>ElectroCore - Products</title>
 	<link href="/css/bienvenida.css" rel="stylesheet">
 	<link href="/css/productoStyle.css" rel="stylesheet">
 	<link href="/css/carritoStyle.css" rel="stylesheet">
@@ -31,19 +31,17 @@
 				</div>
 				<div class="logOut">
 					<a th:href="@{/logout}">
-						<p>LogOut</p>
+						<p>Logout</p>
 					</a>
 				</div>
 			</div>
 		</nav>
 		<nav class="navegador">
 			<ul class="opciones">
-				<li><a th:href="@{/index}">Inicio</a></li>
-				<li><a th:href="@{/producto}">Productos</a></li>
-				<li><a th:href="@{/lote}">Lotes</a></li>
-				<li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
+				<li><a th:href="@{/index}">Start</a></li>
+				<li><a th:href="@{/producto}">Products</a></li>
+				<li><a th:href="@{/pedidosAprov}">Supplies</a></li>
 				<li><a th:href="@{/stock}">Stock</a></li>
-				<li><a th:href="@{/lote/informe}">Informe</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -57,7 +55,7 @@
 
 			<div class="redirigirProducto">
 				<a href="product/new">
-					<p>Crear nuevo producto</p>
+					<p>Create New Product</p>
 				</a>
 			</div>
 
@@ -68,9 +66,8 @@
 			<thead>
 				<tr>
 					<th>ID</th>
-					<th>Nombre</th>
-					<th>Precio de venta</th>
-					<th>Acciones</th>
+					<th>Name</th>
+					<th>Sale price</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -79,7 +76,8 @@
 					<td><span th:text="${producto.name}"></span></td>
 					<td><span th:text="${producto.sellingPrice}"></span></td>
 					<td>
-						<a th:href="@{/product/{id}(id=${producto.idProduct})}"><input type="submit" value="Modificar"></a>
+						<a th:href="@{/product/{id}(id=${producto.idProduct})}"><input type="submit"
+								value="Modificar"></a>
 					</td>
 					<td>
 						<form action="#" th:action="@{/product/delete/{id}(id=${producto.idProduct})}" method="post">

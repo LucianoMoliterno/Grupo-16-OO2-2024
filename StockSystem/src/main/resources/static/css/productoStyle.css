@@ -1,46 +1,42 @@
-main{
+main {
 	padding-top: 2%;
 }
 
-
-.agregar-producto{
+.agregar-producto {
 	width: 80%;
 	height: 30px;
 	display: flex;
 	margin-bottom: 2%;
 }
 
-
-.icono{
+.icono {
 	width: 5%;
 	padding-left: 2%;
 	text-align: right;
 }
 
-.redirigirProducto{
+.redirigirProducto {
 	width: 30%;
 	text-align: center;
 }
 
-.redirigirProducto p{
+.redirigirProducto p {
 	font-size: 25px;
 	width: 70%;
 	margin-top: -0.5%;
 }
 
-.redirigirProducto p:hover{
+.redirigirProducto p:hover {
 	color: white;
-	background-color: rgb(49, 170, 120);
+	background-color: rgb(0, 0, 0);
+	/* Cambiado a verde */
 	border-radius: 15px;
 }
 
-.redirigirProducto a{
+.redirigirProducto a {
 	color: black;
 	text-decoration-line: none;
 }
-
-
-
 
 table {
 	font-size: 25px;
