@@ -63,7 +63,7 @@ INSERT INTO `db_system_stock`.`product` (`id_product`, `name`, `selling_price`) 
 
 -- Insertar stocks correspondientes
 INSERT INTO `db_system_stock`.`stock` (`id_stock`, `quantity`, `quantity_min`, `product_id`) VALUES
-(1, 50, 5, 1),
+(1, 5, 5, 1),
 (2, 30, 5, 2),
 (3, 40, 5, 3),
 (4, 60, 5, 4),
@@ -112,5 +112,6 @@ DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '13');
 DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '14');
 DELETE FROM `db_system_stock`.`product` WHERE (`id_product` = '15');
 
-
-
+-- update stock
+UPDATE stock SET quantity = 0 WHERE id_stock = 5;
+UPDATE stock SET quantity = 5 WHERE id_stock = 6;
