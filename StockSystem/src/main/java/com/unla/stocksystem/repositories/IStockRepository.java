@@ -1,3 +1,4 @@
+
 package com.unla.stocksystem.repositories;
 
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public interface IStockRepository extends JpaRepository<Stock, Serializable> {
 
 	public abstract Stock findByProduct(Product product);// trae por producto
 
+	@Query("SELECT s FROM Stock s JOIN FETCH s.product")
 	public abstract List<Stock> findAll();
 
 	@Query("SELECT s FROM Stock s WHERE s.quantity > 0") // trae stock pero con productos

@@ -1,3 +1,4 @@
+
 package com.unla.stocksystem.service;
 
 import java.util.List;
@@ -27,10 +28,10 @@ public class StockService implements IStockService {
 	@Override
 	public Optional<Stock> findByIdStock(int idStock) throws Exception {
 		try {
-            return stockRepository.findById(idStock);
-        } catch (Exception e) {
-            throw new Exception("Error de fetching stock con id: " + idStock, e);
-        }
+			return stockRepository.findById(idStock);
+		} catch (Exception e) {
+			throw new Exception("Error de fetching stock con id: " + idStock, e);
+		}
 	}
 
 	@Override

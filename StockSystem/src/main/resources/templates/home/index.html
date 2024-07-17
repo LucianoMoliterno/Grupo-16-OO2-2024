@@ -4,89 +4,72 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
 	<title>Stock System</title>
 	<link href="/css/bienvenida.css" rel="stylesheet">
 	<style>
-		:root {
-			--bg-color: #111;
-			--text-color: #fff;
-			--header-bg: #222;
-			--nav-bg: #333;
-			--banner-bg: #444;
-			--hover-bg: #555;
-			--button-bg: #666;
-			--button-hover-bg: #777;
-			--button-color: #fff;
-		}
-
 		body {
-			background-color: var(--bg-color);
-			color: var(--text-color);
+			background-color: #1E1E1E;
+			/* Fondo gris oscuro */
+			color: #EAEAEA;
+			/* Texto en color blanco */
 			font-family: 'Teko', sans-serif;
+			/* Fuente Teko */
 			margin: 0;
 			padding: 0;
-			line-height: 1.6;
 		}
 
 		.encabezado {
-			background-color: var(--header-bg);
-			padding: 1rem 0;
-			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			background-color: #252526;
+			/* Encabezado gris oscuro */
+			padding: 10px 0;
 		}
 
 		.header-nav {
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 0 2rem;
+			padding: 0 20px;
 		}
 
-		.logo-container h1 {
-			margin: 0;
-			font-size: 2rem;
-			letter-spacing: 1px;
+		.logo-container {
+			margin-left: 20px;
 		}
 
 		.cerrar-sesion {
+			margin-right: 20px;
 			display: flex;
 			align-items: center;
 		}
 
-		.iconos a,
 		.iconos {
 			margin-right: 10px;
 		}
 
 		.logOut a {
-			color: var(--text-color);
+			color: #EAEAEA;
 			text-decoration: none;
-			margin-left: 1rem;
-			transition: color 0.3s ease;
 			padding: 10px 15px;
 			transition: all 0.3s ease;
 		}
 
-		.iconos a:hover,
 		.logOut a:hover {
-			color: #ddd;
-			background-color: var(--hover-bg);
+			background-color: #444444;
+			/* Fondo al pasar el mouse */
 			border-radius: 5px;
 		}
 
 		.navegador {
-			background-color: var(--nav-bg);
-			padding: 0.5rem 0;
+			background-color: #333333;
+			/* Navegador más oscuro */
+			padding: 10px 0;
 		}
 
 		.opciones {
+			list-style-type: none;
+			margin: 0;
 			padding: 0;
 			display: flex;
 			justify-content: center;
-			flex-wrap: wrap;
 		}
 
 		.opciones li {
@@ -94,65 +77,37 @@
 		}
 
 		.opciones li a {
-			color: var(--text-color);
+			color: #EAEAEA;
+			/* Texto en color blanco */
 			text-decoration: none;
-			padding: 0.5rem 1rem;
-			margin: 0 0.5rem;
+			padding: 10px 15px;
 			transition: all 0.3s ease;
-			border-radius: 4px;
 		}
 
 		.opciones li a:hover {
-			background-color: var(--hover-bg);
+			background-color: #444444;
+			/* Fondo al pasar el mouse */
 			border-radius: 5px;
 		}
 
 		.banner {
-			background-color: var(--banner-bg);
-			padding: 4rem 0;
+			background-color: #444444;
+			/* Banner gris más claro */
+			padding: 80px 0;
 			text-align: center;
 		}
 
 		.texto-banner {
 			font-size: 2.5rem;
-			margin-bottom: 1rem;
-		}
-
-		.boton-primario {
-			background-color: var(--button-bg);
-			color: var(--button-color);
-			border: none;
-			padding: 0.75rem 1.5rem;
-			font-size: 1.25rem;
-			border-radius: 5px;
-			transition: background-color 0.3s ease;
-			cursor: pointer;
-		}
-
-		.boton-primario:hover {
-			background-color: var(--button-hover-bg);
+			margin-bottom: 20px;
 		}
 	</style>
-	<style>
-		@media (max-width: 768px) {
-			.header-nav {
-				flex-direction: column;
-				text-align: center;
-			}
 
-			.cerrar-sesion {
-				margin-top: 1rem;
-			}
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
 
-			.opciones {
-				flex-direction: column;
-			}
-
-			.opciones li {
-				margin: 0.5rem 0;
-			}
-		}
-	</style>
+	<script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -163,11 +118,11 @@
 			</div>
 			<div class="cerrar-sesion">
 				<div class="iconos">
-					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" width="40%"></i></a>
+					<a th:href="@{/carrito}"><i class="fa-solid fa-cart-shopping" style="color: #EAEAEA;"></i></a>
 				</div>
 				<div class="logOut">
 					<a th:href="@{/logout}">
-						<p>Logout</p>
+						<p>LogOut</p>
 					</a>
 				</div>
 			</div>
