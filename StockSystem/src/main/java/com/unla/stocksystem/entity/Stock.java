@@ -41,5 +41,37 @@ public class Stock {
 		this.product = product;
 	}
 
+	public int getIdStock() {
+		return idStock;
+	}
+
+	public void setIdStock(int idStock) {
+		this.idStock = idStock;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getQuantyMin() {
+		return quantyMin;
+	}
+
+	public void setQuantyMin(int quantyMin) {
+		this.quantyMin = quantyMin;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	
 	
 }

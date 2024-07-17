@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPOTECH - Stock</title>
+    <link href="/css/bienvenida.css" rel="stylesheet">
+    <link href="/css/carritoStyle.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/57faba85b1.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Teko', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .encabezado {
+            background-color: #2c3e50;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .logo-container img {
+            width: 40%;
+            max-width: 200px; /* Ajusta el tamaño máximo del logo */
+        }
+
+        .cerrar-sesion {
+            display: flex;
+            align-items: center;
+        }
+
+        .cerrar-sesion .iconos {
+            margin-right: 15px;
+        }
+
+        .cerrar-sesion .logOut p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .cerrar-sesion .logOut a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cerrar-sesion .logOut a:hover {
+            color: #ccc;
+        }
+
+        .navegador {
+            background-color: #34495e;
+            padding: 10px 0;
+        }
+
+        .opciones {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .opciones li {
+            margin-right: 30px;
+        }
+
+        .opciones li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .opciones li a:hover {
+            background-color: #5d6d7e;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #2c3e50;
+            color: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        table tr:hover {
+            background-color: #eaeaea;
+        }
+
+        .button {
+            background-color: #1abc9c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #16a085;
+        }
+
+        .button:active {
+            transform: translateY(1px);
+        }
+
+        .alert {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+<header class="encabezado">
+    <nav class="header-nav">
+        <div class="logo-container">
+            <a th:href="@{/index}">
+                <img src="/imagenes/logoCompoTech.png" alt="CompoTech Logo">
+            </a>
+        </div>
+        <div class="cerrar-sesion">
+            <div class="iconos">
+                <a th:href="@{/carrito}">
+                    <i class="fa-solid fa-cart-shopping" style="font-size: 1.5rem;"></i>
+                </a>
+            </div>
+            <div class="logOut">
+                <a th:href="@{/logout}">
+                    <p>Logout</p>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <nav class="navegador">
+        <ul class="opciones">
+            <li><a th:href="@{/index}">Inicio</a></li>
+            <li><a th:href="@{/product}">Productos</a></li>
+            <li><a th:href="@{/lote}">Lotes</a></li>
+            <li><a th:href="@{/pedidosAprov}">Aprovisionamientos</a></li>
+            <li><a th:href="@{/stock}">Stock</a></li>
+            <li><a th:href="@{/lote/informe}">Informe</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="main-content">
+    <table border="1px">
+        <thead>
+        <tr>
+     
+            <th>Id Product</th>
+			<th>Name</th>
+            <th>Selling Price</th>
+            <th>Id Stock</th>
+            <th>Quantity</th>
+			<th>Cantidad minima</th>
+            <th>En Stock</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="stock : ${stocks}">
+			<td th:text="${stock.product.idProduct}"></td>
+           <td th:text="${stock.product.name}"></td>
+            <td th:text="${stock.product.sellingPrice}"></td>
+			<td th:text="${stock.idStock}"></td>
+            <td th:text="${stock.quantity}"></td>
+            <td th:text="${stock.quantyMin}"></td>
+        </tr> 
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
